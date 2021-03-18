@@ -17,7 +17,7 @@ const List = (props) => {
   const renderItem = (_item) => {
     const item = {
       ..._item,
-      image: `https://api.adorable.io/avatars/${_item.id}`,
+      image: `https://api.hello-avatar.com/adorables/${_item.id}`,
     }
     return (
       <div

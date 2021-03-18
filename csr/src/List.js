@@ -24,7 +24,7 @@ const List = () => {
           alignItems: 'center'
         }}>
         <img
-          src={`https://api.adorable.io/avatars/${item.id}`}
+          src={`https://api.hello-avatar.com/adorables/${item.id}`}
           className="mr-3"
           width="30rem"
           height="30rem"
@@ -37,7 +37,7 @@ const List = () => {
         <button type="button" className="btn btn-outline-primary">
           <Link to={{
             pathname: "/details",
-            user: { ...item, image: `https://api.adorable.io/avatars/${item.id}` }
+            user: { ...item, image: `https://api.hello-avatar.com/adorables/${item.id}` }
           }}>Details</Link>
         </button>
 

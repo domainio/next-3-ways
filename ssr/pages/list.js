@@ -3,22 +3,21 @@ import axios from 'axios';
 import Link from 'next/link';
 
 const List = (props) => {
+  const [users, setUsers] = useState(props.users);
 
-  // const [users, setUsers] = useState(props.users);
-
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    const getAsync = async () => {
-      const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
-      setUsers(data);
-    }
-    getAsync();
-  }, []);
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   const getAsync = async () => {
+  //     const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
+  //     setUsers(data);
+  //   }
+  //   getAsync();
+  // }, []);
 
   const renderItem = (_item) => {
     const item = {
       ..._item,
-      image: `https://api.adorable.io/avatars/${_item.id}`,
+      image: `https://api.hello-avatar.com/adorables/${_item.id}`,
     }
     return (
       <div
@@ -70,11 +69,11 @@ const List = (props) => {
 //   return { users: data };
 // }
 
-// export const getServerSideProps = async (ctx) => {
-//   // Fetch data from external API
-//   const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
-//   // Pass data to the page via props
-//   return { props: { users: data } }
-// }
+export const getServerSideProps = async (ctx) => {
+  // Fetch data from external API
+  const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
+  // Pass data to the page via props
+  return { props: { users: data } }
+}
 
 export default List;

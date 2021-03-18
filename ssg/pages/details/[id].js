@@ -30,7 +30,7 @@ export const getStaticProps = async (ctx) => {
   // Fetch data from external API
   const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
   const user = data.find(user => user.id.toString() === id);
-  user['image'] = `https://api.adorable.io/avatars/${id}`;
+  user['image'] = `https://api.hello-avatar.com/adorables/${id}`;
   // Pass data to the page via props
   return { props: { user } }
 }
